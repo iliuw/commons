@@ -1,0 +1,90 @@
+buildscript {
+    repositories {
+        maven { url "https://maven.aliyun.com/repository/public/"}
+        maven { url "https://plugins.gradle.org/m2/"}
+        mavenCentral()
+        jcenter()
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group 'com.robby.app'
+version ver_product
+
+sourceCompatibility = ver_jdk
+targetCompatibility = ver_jdk
+
+[compileJava,compileTestJava].options*.encoding = 'UTF-8'
+
+repositories {
+    maven { url "https://maven.aliyun.com/repository/public/"}
+    maven { url "https://plugins.gradle.org/m2/"}
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    compile 'com.google.guava:guava:' + ver_guava
+    compile 'com.google.code.gson:gson:' + ver_gson
+    compile 'org.apache.commons:commons-lang3:'+ver_lang3
+    compile 'org.apache.commons:commons-pool2:'+ver_pool2
+
+    compile 'com.alibaba:druid:' + ver_druid
+    compile 'mysql:mysql-connector-java:' + ver_mysql
+    compile 'org.mybatis:mybatis:' + ver_mybatis
+    compile 'com.github.jneat:mybatis-types:' + ver_mybatis_types
+
+    compile 'org.apache.poi:poi:'+ver_poi
+    compile 'org.apache.poi:poi-ooxml:'+ver_poi
+
+    compile 'io.github.openfeign:feign-core:'+ver_openfeign
+    compile 'io.github.openfeign:feign-gson:'+ver_openfeign
+    compile 'io.github.openfeign:feign-httpclient:'+ver_openfeign
+    compile 'io.github.openfeign:feign-okhttp:'+ver_openfeign
+    compile 'org.projectlombok:lombok:'+ver_lombok
+
+    compile 'redis.clients:jedis:'+ver_jedis
+    compile 'org.slf4j:slf4j-api:'+ver_slf4j
+    compile 'javax.servlet:javax.servlet-api:4.0.1'
+    compile 'io.springfox:springfox-swagger2:' + ver_swagger
+    compile 'io.springfox:springfox-swagger-ui:' + ver_swagger
+
+    testCompile 'junit:junit:'+ver_junit
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories {
+        mavenDeployer {
+            pom.groupId = project.group
+            pom.version = project.version
+            pom.artifactId = project.name
+            pom.project {
+                name project.name
+                packaging 'jar'
+                description 'Robby的开发工具包'
+                licenses {
+                    license {
+                        name 'The Apache Software License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        distribution ''
+                    }
+                }
+            }
+            repositories {
+                repository(url: 'https://repo.rdc.aliyun.com/repository/110277-release-pJbhlb/') {
+                    authentication(userName: 'jTxM5Q', password: 'NyADxvU41p')
+                }
+                snapshotRepository(url: 'https://repo.rdc.aliyun.com/repository/110277-snapshot-Hge2lG/') {
+                    authentication(userName: 'jTxM5Q', password: 'NyADxvU41p')
+                }
+            }
+        }
+    }
+}
