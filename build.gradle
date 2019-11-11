@@ -57,3 +57,5 @@ dependencies {
 
     testCompile 'junit:junit:'+ver_junit
 }
+
+apply from: 'uparchive.gradle'
