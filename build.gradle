@@ -57,34 +57,3 @@ dependencies {
 
     testCompile 'junit:junit:'+ver_junit
 }
-
-uploadArchives {
-    configuration = configurations.archives
-    repositories {
-        mavenDeployer {
-            pom.groupId = project.group
-            pom.version = project.version
-            pom.artifactId = project.name
-            pom.project {
-                name project.name
-                packaging 'jar'
-                description 'Robby的开发工具包'
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                        distribution ''
-                    }
-                }
-            }
-            repositories {
-                repository(url: 'https://repo.rdc.aliyun.com/repository/110277-release-pJbhlb/') {
-                    authentication(userName: 'jTxM5Q', password: 'NyADxvU41p')
-                }
-                snapshotRepository(url: 'https://repo.rdc.aliyun.com/repository/110277-snapshot-Hge2lG/') {
-                    authentication(userName: 'jTxM5Q', password: 'NyADxvU41p')
-                }
-            }
-        }
-    }
-}
