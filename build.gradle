@@ -42,6 +42,8 @@ dependencies {
 
     compile 'org.apache.poi:poi:'+ver_poi
     compile 'org.apache.poi:poi-ooxml:'+ver_poi
+    compile 'org.apache.poi:poi-scratchpad:' + ver_poi
+    compile 'org.apache.pdfbox:pdfbox:' + ver_pdfbox
 
     compile 'io.github.openfeign:feign-core:'+ver_openfeign
     compile 'io.github.openfeign:feign-gson:'+ver_openfeign
@@ -54,6 +56,9 @@ dependencies {
     compile 'javax.servlet:javax.servlet-api:4.0.1'
     compile 'io.springfox:springfox-swagger2:' + ver_swagger
     compile 'io.springfox:springfox-swagger-ui:' + ver_swagger
+
+    compile 'commons-fileupload:commons-fileupload:' + ver_fileupload
+    compile 'commons-io:commons-io:' + ver_io
 
     testCompile 'junit:junit:'+ver_junit
 }
