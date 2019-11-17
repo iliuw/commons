@@ -22,11 +22,20 @@ public class DateTimeUtil {
     }
 
     /**
-     * 获得当前时间的Date对象
+     * 获得指定时间的Date对象
      * @return Date
      */
-    public static Date getDate() {
-        return Date.from(getNow().atZone(ZoneId.of("GMT+8")).toInstant());
+    public static Date localToDate(LocalDateTime local) {
+        return Date.from(local.atZone(ZoneId.of("GMT+8")).toInstant());
+    }
+
+    /**
+     * Date 转 LocalDateTime
+     * @param date
+     * @return
+     */
+    public static LocalDateTime dateToLocal(Date date) {
+        return date.toInstant().atZone(ZoneId.of("GMT+8")).toLocalDateTime();
     }
 
     /**

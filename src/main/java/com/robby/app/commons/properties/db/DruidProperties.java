@@ -18,9 +18,9 @@ public class DruidProperties {
     int maxIdle;
     int maxActive;
     int minIdle;
-    int maxWait;
-    int timeBetweenEvictionRunsMillis;
-    int minEvictableIdleTImeMillis;
+    long maxWait;
+    long timeBetweenEvictionRunsMillis;
+    long minEvictableIdleTImeMillis;
     String validationQuery;
     Boolean testOnBorrow;
     Boolean testOnReturn;
