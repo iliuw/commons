@@ -54,11 +54,11 @@ public class DataBaseUtil {
     public boolean initDataBase() throws ClassNotFoundException, SQLException {
         Splitter sp = Splitter.on("/").trimResults();
         String uri = dataSourceProperties.getUrl();
-        String base = uri.substring(0, uri.lastIndexOf("/"));
+        String base = uri.substring(0, uri.lastIndexOf("?"));
         List<String> uriProp = sp.splitToList(uri);
-        String database = uriProp.get(uriProp.size() - 1);
+        String database = uriProp.get(uriProp.size() - 2);
         String name = database.substring(0, database.indexOf("?"));
-        String mysqlUri = String.format("%s/mysql?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8", base);
+        String mysqlUri = String.format("%s/mysql?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8", base.substring(0, base.lastIndexOf("/")));
         // 初始化Driver，然后连接到mysql库
         Class.forName(dataSourceProperties.getDriverClassName());
         Connection connection = DriverManager.getConnection(mysqlUri, dataSourceProperties.getUsername(), dataSourceProperties.getPassword());
