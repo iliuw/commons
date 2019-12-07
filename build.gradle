@@ -39,6 +39,7 @@ dependencies {
     compile 'mysql:mysql-connector-java:' + ver_mysql
     compile 'org.mybatis:mybatis:' + ver_mybatis
     compile 'com.github.jneat:mybatis-types:' + ver_mybatis_types
+    compile 'com.baomidou:mybatis-plus:' + ver_mybatisplus
 
     compile 'org.apache.poi:poi:'+ver_poi
     compile 'org.apache.poi:poi-ooxml:'+ver_poi
