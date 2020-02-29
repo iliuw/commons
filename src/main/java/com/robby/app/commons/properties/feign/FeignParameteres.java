@@ -38,9 +38,11 @@ public class FeignParameteres implements Serializable {
     @JsonProperty("domain")
     @ApiModelProperty(value = "接口域", name = "domain")
     String domain;
+    @Builder.Default
     @JsonProperty("requests")
     @ApiModelProperty(value = "HTTP/1.1 Request参数", name = "requests")
     Map<String, Object> requests = new LinkedHashMap<>();
+    @Builder.Default
     @JsonProperty("body")
     @ApiModelProperty(value = "通过RequestBody传递的参数对象", name = "body")
     Object body = new LinkedHashMap<>();

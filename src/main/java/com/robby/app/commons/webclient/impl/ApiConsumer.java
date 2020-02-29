@@ -6,6 +6,7 @@ import com.robby.app.commons.webclient.ApiClient;
 import com.robby.app.commons.webclient.logger.SimpleLogger;
 import feign.Feign;
 import feign.Logger;
+import feign.Request;
 import feign.gson.GsonDecoder;
 import feign.gson.GsonEncoder;
 import feign.okhttp.OkHttpClient;
@@ -64,6 +65,7 @@ public class ApiConsumer {
                 .encoder(new GsonEncoder())
                 .logLevel(level)
                 .logger(logger)
+                .options(new Request.Options(60000, 300000))
                 .target(ApiClient.class, parameteres.getDomain());
     }
 
