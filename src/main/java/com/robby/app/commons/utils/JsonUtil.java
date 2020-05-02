@@ -41,6 +41,16 @@ public class JsonUtil {
         return GSON.fromJson(src, type);
     }
 
+    public static <T> T fromJson(String src, Type type) {
+        checkNotNull(src, "The source json-string can not be null!");
+        return GSON.fromJson(src, type);
+    }
+
+    public static <T> T fromJson(JsonElement src, Type type) {
+        checkNotNull(src, "The source json-string can not be null!");
+        return GSON.fromJson(src, type);
+    }
+
     /**
      * Object to JSON-Element
      * @param src
