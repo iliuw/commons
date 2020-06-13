@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author liuwei
  */
-@Headers("Content-Type: application/json;charset=utf-8")
+@Headers({"Content-Type: application/json;charset=utf-8", "Connection: close"})
 public interface ApiClient {
 
     @RequestLine("GET /{url}")
