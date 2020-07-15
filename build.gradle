@@ -64,6 +64,8 @@ dependencies {
     compile "javax.validation:validation-api:${ver_validation}"
     compile "org.hibernate.validator:hibernate-validator:${ver_hibernate_validate}"
 
+    compile 'org.springframework.boot:spring-boot-starter-data-redis:' + ver_boot
+
     testCompile 'junit:junit:'+ver_junit
 }
 
