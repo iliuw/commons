@@ -68,7 +68,7 @@ public class DocUtil {
         return docket;
     }
 
-    public static List<Parameter> genHeader(Map<String, Object> header) {
+    public static List<Parameter> genHeader(Map<String, String> header) {
         List<Parameter> result = new ArrayList<>();
         ParameterBuilder builder = new ParameterBuilder();
 
