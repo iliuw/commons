@@ -6,6 +6,15 @@ package com.robby.app.commons.utils;
  * @author liuwei
  */
 
+import com.robby.app.commons.pojo.ValidReport;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.groups.Default;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 /**
  * 辅助参数校验
  */
